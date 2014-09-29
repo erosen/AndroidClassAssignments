@@ -9,4 +9,83 @@
     android:id = "@+id/container"
     tools:context="edu.rutgers.assignone.MainActivity" >
 
+     <EditText
+        android:id="@+id/txtMyUrl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/myDownloadProgress"
+        android:layout_marginLeft="20dp"
+        android:layout_toRightOf="@+id/textView3"
+        android:ems="10"
+        android:inputType="textUri"
+        android:singleLine="true"
+        android:text="@string/myUrl" />
+<TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/myDownloadProgress"
+        android:layout_centerHorizontal="true"
+        android:text="@string/stDownloadProgress"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+<TextView
+        android:id="@+id/myWifiStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/myDownloadProgressPercent"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="18dp"
+        android:text="@string/myWifiStatus"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+<TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/myWifiStatus"
+        android:layout_alignBottom="@+id/myWifiStatus"
+        android:layout_alignLeft="@+id/myDownloadProgress"
+        android:text="@string/stWifiStatus"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+<TextView
+        android:id="@+id/myDownloadProgressPercent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/myWifiStatus"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="15dp"
+        android:text="@string/myDownloadProgressPercent"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+<ProgressBar
+        android:id="@+id/myDownloadProgress"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/myDownloadProgressPercent"
+        android:layout_alignLeft="@+id/textView3" />
+<TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/txtMyUrl"
+        android:layout_alignBottom="@+id/txtMyUrl"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="15dp"
+        android:text="@string/stUrl"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+<Button
+        android:id="@+id/btnDownload"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtMyUrl"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="94dp"
+        android:text="@string/stBtnDownload" />
+<CheckBox
+        android:id="@+id/chkWaitForWifi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtMyUrl"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="48dp"
+        android:text="@string/stWait" />
 </RelativeLayout>
