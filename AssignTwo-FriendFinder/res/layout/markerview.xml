@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="50dp"
+    android:layout_height="60dp"
+    android:orientation="vertical"
+    tools:ignore="UseCompoundDrawables" >
+
+    <ImageView
+        android:id="@+id/imgMarker"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/FriendMarker" />
+
+    <TextView
+        android:id="@+id/mDistance"
+        android:layout_width="50dp"
+        android:layout_height="10dp"
+        android:text="@string/myDistance"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+</LinearLayout>

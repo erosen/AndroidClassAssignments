@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">FriendFinder</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="longlat">Longitude / Latitiude:</string>
+    <string name="myLongLat">myLongLat</string>
+    <string name="mLongLat">myLongLat</string>
+    <string name="estimateadd">Estimated Address:</string>
+    <string name="mAddress">myAddress</string>
+    <string name="checkin">Check-in</string>
+    <string name="delete">Delete Entry</string>
+    <string name="LoadMapView">Go to Map</string>
+    <string name="updateLoc">Update Location</string>
+    <string name="FriendMarker">Friend Marker</string>
+    <string name="myDistance">0 meters</string>
+    <string name="myAccu">mAccuracy</string>
+
+</resources>
