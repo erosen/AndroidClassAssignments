@@ -80,12 +80,35 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="94dp"
         android:text="@string/stBtnDownload" />
+
 <CheckBox
-        android:id="@+id/chkWaitForWifi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/txtMyUrl"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="48dp"
-        android:text="@string/stWait" />
+    android:id="@+id/chkWaitForWifi"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/txtMyUrl"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="48dp"
+    android:checked="true"
+    android:enabled="true"
+    android:text="@string/stWait" />
+
+<TextView
+    android:id="@+id/textView2"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignLeft="@+id/myDownloadProgress"
+    android:layout_centerVertical="true"
+    android:text="@string/cstatus"
+    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+<TextView
+    android:id="@+id/myStatus"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_below="@+id/textView2"
+    android:layout_centerHorizontal="true"
+    android:layout_marginTop="18dp"
+    android:text="@string/myStatus"
+    android:textAppearance="?android:attr/textAppearanceMedium" />
+
 </RelativeLayout>

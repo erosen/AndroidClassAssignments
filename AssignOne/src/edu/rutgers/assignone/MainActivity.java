@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
@@ -24,10 +25,10 @@ import android.widget.TextView;
 
 public class MainActivity extends ActionBarActivity {
 
-	TextView mWifiStatus, mDownloadProgressPercent;
+	TextView mWifiStatus, mDownloadProgressPercent, mStatus;
 	EditText et;
 	String myHTTPUrl;
-	CheckBox isWIFI;
+	CheckBox isWifi;
 	Button btnDownload;
 	ProgressBar mProgressBar;
 	long downloadId;
@@ -38,9 +39,12 @@ public class MainActivity extends ActionBarActivity {
 		setContentView(R.layout.activity_main);
 
 		et = (EditText) findViewById(R.id.txtMyUrl);
-		final String myHTTPUrl = et.getText().toString();
 
-		isWIFI = (CheckBox) findViewById(R.id.chkWaitForWifi);
+		mStatus = (TextView) findViewById(R.id.myStatus);
+		mStatus.setTextColor(Color.BLUE);
+		mStatus.setText("Press the button to download");
+
+		isWifi = (CheckBox) findViewById(R.id.chkWaitForWifi);
 
 		btnDownload = (Button) findViewById(R.id.btnDownload);
 
@@ -53,17 +57,20 @@ public class MainActivity extends ActionBarActivity {
 			@Override
 			public void onClick(View v) {
 
+				final String myHTTPUrl = et.getText().toString();
+
 				DownloadManager.Request request = new DownloadManager.Request(
 						Uri.parse(myHTTPUrl));
 				request.allowScanningByMediaScanner();
 				request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
 
-				if (isWIFI.isEnabled()) {
+				mStatus.setText("Beginning Download");
+
+				if (isWifi.isChecked()) {
 					request.setDescription("File is being downloaded over Wifi");
 					request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI);
 				} else {
-					request.setDescription("File is being downloaded over Mobile Network");
-					request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_MOBILE);
+					request.setDescription("File is being downloaded over any available network");
 				}
 
 				String nameOfFile = URLUtil.guessFileName(myHTTPUrl, null,
@@ -99,6 +106,7 @@ public class MainActivity extends ActionBarActivity {
 							if (cursor.getInt(cursor
 									.getColumnIndex(DownloadManager.COLUMN_STATUS)) == DownloadManager.STATUS_SUCCESSFUL) {
 								downloading = false;
+
 							}
 							if (null != cursor) {
 								cursor.close();
@@ -117,11 +125,20 @@ public class MainActivity extends ActionBarActivity {
 											.toString(dl_progress < 0 ? 0
 													: dl_progress)
 											+ "%");
+									
+									if (mProgressBar.getProgress() == 100) {
+
+										mStatus.setText("Download Completed");
+									}
 								}
+
 							});
+
 						}
+
 					}
 				}).start();
+
 			}
 
 		});
@@ -157,21 +174,13 @@ public class MainActivity extends ActionBarActivity {
 
 		if (myNetworkInfo.isConnected()) {
 			mWifiStatus.setText("Connected");
+			mWifiStatus.setTextColor(Color.GREEN);
 		} else {
-			mWifiStatus.setText("Not Connected");
+			mWifiStatus.setText("Waiting for Wifi...");
+			mWifiStatus.setTextColor(Color.RED);
 		}
 
 	};
-
-	@Override
-	protected void onPause() {
-		super.onPause();
-	}
-
-	@Override
-	protected void onStop() {
-		super.onStop();
-	}
 
 	@Override
 	protected void onDestroy() {
@@ -179,10 +188,7 @@ public class MainActivity extends ActionBarActivity {
 
 		unregisterReceiver(myWifiReceiver);
 
+		System.exit(0);
 	}
 
-	@Override
-	protected void onPostResume() {
-		super.onPostResume();
-	}
 }
