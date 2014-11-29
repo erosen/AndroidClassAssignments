@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CV Benchmark</string>
+    <string name="ipstrings">IP Address:</string>
+    <string name="capture">Capture Frame</string>
+    <string name="TextView"></string>
+    <string name="currtask">Current Task:</string>
+    <string name="mfps">FPS:</string>
+    <string name="mip">IP HERE</string>
+    <string name="delete">Empty Folder</string>
+</resources>
